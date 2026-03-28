@@ -28,7 +28,8 @@ def create_sql_deep_agent():
     db = SQLDatabase.from_uri(f"sqlite:///{db_path}", sample_rows_in_table_info=3)
 
     # Initialize Claude Sonnet 4.5 for toolkit initialization
-    model = ChatAnthropic(model="claude-sonnet-4-5-20250929", temperature=0)
+    model = ChatAnthropic(
+        model="qwen3-max-2026-01-23", temperature=0, base_url="https://dashscope.aliyuncs.com/apps/anthropic")
 
     # Create SQL toolkit and get tools
     toolkit = SQLDatabaseToolkit(db=db, llm=model)
